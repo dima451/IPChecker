@@ -4,3 +4,9 @@
     build:
       context: .
       dockerfile: IPChecker.LookupApi/Dockerfile
+
+  ipchecker.lookupapi-1:
+    image: ipchecker.lookupapi-1
+    build:
+      context: .
+      dockerfile: IPChecker.LookupApi/Dockerfile

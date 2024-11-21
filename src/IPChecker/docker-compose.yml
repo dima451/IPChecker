@@ -1,0 +1,6 @@
+﻿services:
+  ipchecker.lookupapi:
+    image: ipchecker.lookupapi
+    build:
+      context: .
+      dockerfile: IPChecker.LookupApi/Dockerfile

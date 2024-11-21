@@ -1,0 +1,6 @@
+@IPChecker.LookupApi_HostAddress = http://localhost:5149
+
+GET {{IPChecker.LookupApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,6 @@
+@IPChecker.BatchApi_HostAddress = http://localhost:5151
+
+GET {{IPChecker.BatchApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

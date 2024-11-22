@@ -1,4 +1,5 @@
-﻿using IPChecker.Domain;
+﻿using System.Text.Json;
+using IPChecker.Domain;
 using IPChecker.Domain.Options;
 using IpStack.Models;
 using Microsoft.Extensions.Options;
@@ -35,14 +36,22 @@ public class LookupService : ILookupService
     /// <param name="ipAddress"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public async Task<IpAddressDetails> GetIpAddressDetails(IpRequest ipAddress)
+    public async Task<IpAddressDetails?> GetIpAddressDetailsAsync(IpRequest ipAddress)
     {
         var httpClient = _httpClientFactory.CreateClient("LookupApi");
-
+        
         httpClient.BaseAddress = new Uri(_endpointsOptions.CacheApi);
         
-        await httpClient.GetAsync($"{_endpointsOptions.CacheApi}/cache/GetIpInfo?ipAddress={ipAddress.IpAddress}");
+        var result = await httpClient.GetAsync($"/cache/GetIpInfo?ipAddress={ipAddress.IpAddress}");
+       
+        if (!result.IsSuccessStatusCode)
+        {
+             _logger.LogError("Failed to get IP address details from cache API.");
+             return null;
+        }
         
-        throw new System.NotImplementedException();
+        var content = await result.Content.ReadAsStringAsync();
+        
+        return JsonSerializer.Deserialize<IpAddressDetails>(content);
     }
 }

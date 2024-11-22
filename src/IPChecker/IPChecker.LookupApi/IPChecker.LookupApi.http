@@ -1,6 +1,6 @@
 @IPChecker.LookupApi_HostAddress = http://localhost:5010
 
-GET {{IPChecker.LookupApi_HostAddress}}/GetIpLookup/192.168.0.0 HTTP/1.1
+GET {{IPChecker.LookupApi_HostAddress}}/Cache/GetIpLookup/192.168.0.0 HTTP/1.1
 Accept: application/json
 
 ###

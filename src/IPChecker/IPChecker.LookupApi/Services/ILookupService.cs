@@ -6,5 +6,5 @@ namespace IPChecker.LookupApi.Services;
 
 public interface ILookupService : IService
 {
-    Task<IpAddressDetails> GetIpAddressDetails(IpRequest ipAddress);
+    Task<IpAddressDetails?> GetIpAddressDetailsAsync(IpRequest ipAddress);
 }

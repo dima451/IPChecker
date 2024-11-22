@@ -7,15 +7,15 @@ public class EndpointsOptions
     /// <summary>
     /// Cache API endpoint
     /// </summary>
-    public string CacheApi { get; set; }
+    public string CacheApi { get; set; } = "https://localhost:5001";
     
     /// <summary>
     /// Lookup API endpoint
     /// </summary>
-    public string LookupApi { get; set; }
+    public string LookupApi { get; set; } = "https://localhost:5002";
     
     /// <summary>
     /// Batch API endpoint
     /// </summary>
-    public string BatchApi { get; set; }
+    public string BatchApi { get; set; } = "https://localhost:5003";
 }

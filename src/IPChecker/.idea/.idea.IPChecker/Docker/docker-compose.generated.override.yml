@@ -1,0 +1,59 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  ipchecker.batchapi:
+    build:
+      context: "D:\\Projects\\IPChecker\\src\\IPChecker"
+      dockerfile: "IPChecker.BatchApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/IPChecker.BatchApi.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "ipchecker.batchapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\dmitr\\.nuget\\packages:/home/app/.nuget/packages"
+    - "D:\\Projects\\IPChecker\\src\\IPChecker\\IPChecker.BatchApi:/app:rw"
+    - "D:\\Projects\\IPChecker\\src\\IPChecker:/src:rw"
+    working_dir: "/app"
+  ipchecker.cacheapi:
+    build:
+      context: "D:\\Projects\\IPChecker\\src\\IPChecker"
+      dockerfile: "IPChecker.CacheApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/IPChecker.CacheApi.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "ipchecker.cacheapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\dmitr\\.nuget\\packages:/home/app/.nuget/packages"
+    - "D:\\Projects\\IPChecker\\src\\IPChecker\\IPChecker.CacheApi:/app:rw"
+    - "D:\\Projects\\IPChecker\\src\\IPChecker:/src:rw"
+    working_dir: "/app"
+  ipchecker.lookupapi:
+    build:
+      context: "D:\\Projects\\IPChecker\\src\\IPChecker"
+      dockerfile: "IPChecker.LookupApi/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/IPChecker.LookupApi.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "ipchecker.lookupapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\dmitr\\.nuget\\packages:/home/app/.nuget/packages"
+    - "D:\\Projects\\IPChecker\\src\\IPChecker\\IPChecker.LookupApi:/app:rw"
+    - "D:\\Projects\\IPChecker\\src\\IPChecker:/src:rw"
+    working_dir: "/app"

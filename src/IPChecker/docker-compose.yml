@@ -1,12 +1,22 @@
 ﻿services:
+  ipchecker.cacheapi:
+    image: ipchecker.cacheapi
+    build:
+        context: .
+        dockerfile: IPChecker.CacheApi/Dockerfile
+  
   ipchecker.lookupapi:
+    environment:
+      - Endpoints__CacheApi=ipchecker.cacheapi
     image: ipchecker.lookupapi
     build:
       context: .
-      dockerfile: IPChecker.LookupApi/Dockerfile
-
-  ipchecker.lookupapi-1:
-    image: ipchecker.lookupapi-1
+      dockerfile: IPChecker.LookupApi/Dockerfile  
+  
+  ipchecker.batchapi:
+    environment:
+      - Endpoints__CacheApi=ipchecker.cacheapi
+    image: ipchecker.batchapi
     build:
-      context: .
-      dockerfile: IPChecker.LookupApi/Dockerfile
+        context: .
+        dockerfile: IPChecker.BatchApi/Dockerfile    
